@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ -z "$PYFILE" ]; then
+  echo "Error: PYFILE environment variable not set."
+  exit 1
+fi
+
+output_file="${PYFILE%.py}.pyc"
+
+plat_form=$(python3 -c "import platform; platform.python_implementation()")
+
+echo "Python implementation: $plat_form"
+python3 -m compileall "$PYFILE"
+
+if [ -f "__pycache__/${PYFILE%.py}.cpython-310.pyc" ]; then
+    mv "__pycache__/${PYFILE%.py}.cpython-310.pyc" "$output_file"
+    echo "Compilation successful! Output filename: $output_file"
+else
+    echo "Error: Compilation failed."
+fi
