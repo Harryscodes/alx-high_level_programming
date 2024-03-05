@@ -1,0 +1,44 @@
+def print_square(size):
+    """ 
+    function that prints square based on provided size 
+
+    testcases 
+    examples:
+	>>> print_square(3)
+    	###
+    	###
+    	###
+
+    	>>> print_square(2.9)
+    	Traceback(most recent call last):
+    	...
+    	TypeError: size must be an integer
+
+    	>>> print_square(2)
+    	##
+    	##
+
+    	>>> print_square(0.1)
+    	Traceback(most recent call last):
+    	...
+    	TypeError: size must be an integer
+
+    	>>> print_square(-4)
+    	Traceback(most recent call last):
+    	...
+    	ValueError: size must be >= 0
+    """
+    if not isinstance(size, int) :
+        raise TypeError("size must be an integer")
+    if isinstance(size, float) and size < 0:
+        raise TypeError("size must be an integer")
+    elif size < 0:
+        raise ValueError("size must be >= 0")
+    square = '#'
+    for i in range(size):
+        print('{}'.format(square * size))
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

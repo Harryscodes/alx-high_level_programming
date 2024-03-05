@@ -1,0 +1,24 @@
+def add_integer(a, b=98):
+    """Return the sum of a and b. 
+
+    >>> add_integer(-1, 4)
+    3
+    >>> add_integer(30.5, -10.7)
+    20
+    >>> add_integer(1, 'hello')
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer('5', 30.1)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    """
+    if not isinstance(a, (int, float)):
+        raise TypeError("a must be an integer or float")
+    if not isinstance(b, (int, float)):
+        raise TypeError("b must be an integer or float")
+    return int(a) + int(b)
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

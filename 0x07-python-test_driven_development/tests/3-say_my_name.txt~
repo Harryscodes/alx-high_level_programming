@@ -1,0 +1,37 @@
+def say_my_name(first_name, last_name=""):
+
+    """
+    function to print first name and last name
+    Args:
+	first_name: first name to be printed
+	last_name: last name to be printed
+
+    Raises: TypeError if any argument is not of type string
+    Return: nothing is returned
+
+    Examples:
+	>>> say_my_name('Halland')
+    	My name is Halland 
+
+    	>>> say_my_name('Hamzat', 'kabiru')
+    	My name is Hamzat kabiru
+
+    	>>> say_my_name(['Hamzat'], 'kabiru')
+    	Traceback (most recent call last):
+    	...
+    	TypeError: first_name must be a string
+
+	>>> say_my_name('')
+	My name is	
+
+    """
+    if not isinstance(first_name, str):
+        raise TypeError("first_name must be a string")
+    if not isinstance(last_name, str):
+        raise TypeError("last_name must be a string")
+
+    print("My name is {} {}".format(first_name, last_name))
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
